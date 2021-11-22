@@ -29,6 +29,8 @@ def get_random_or_specific():
 
 
 def print_planet_details():
+    global goto_random_planet
+    
     with open("planetarySystem.json", "r") as planets_json:
         planets_json = json.load(planets_json)
 
