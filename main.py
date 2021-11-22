@@ -7,18 +7,18 @@ import json
 goto_random_planet = ""
 
 
-def print_welcome():
+def print_welcome() -> None:
     print("Welcome to the Solar System!")
 
 
-def get_name():
+def get_name() -> None:
     print("Please enter your name:")
     user_name = input()
 
     print(f"Hello {user_name}!")
 
 
-def get_random_or_specific():
+def get_random_or_specific() -> None:
     global goto_random_planet
 
     print("Would you like to go to a random planet? (Y/N)")
@@ -28,7 +28,7 @@ def get_random_or_specific():
         goto_random_planet = input().strip().lower()
 
 
-def print_planet_details():
+def print_planet_details() -> None:
     global goto_random_planet
     
     with open("planetarySystem.json", "r") as planets_json:
@@ -46,11 +46,12 @@ def print_planet_details():
         print(planets_json["planets"][2]["description"])
 
 
-def main():
+def main() -> None:
     print_welcome()
     get_name()
     get_random_or_specific()
     print_planet_details()
 
 
-main()
+if __name__ == "__main__":
+    main()
