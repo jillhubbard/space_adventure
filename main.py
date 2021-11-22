@@ -12,13 +12,15 @@ user_name = input()
 print(f"Hello {user_name}!")
 
 print("Would you like to go to a random planet? (Y/N)")
-goto_random_planet = input()
-# TODO Check for valid input
+goto_random_planet = input().strip().lower()
+while goto_random_planet not in 'yn':
+    print("Please enter either Y or N.")
+    goto_random_planet = input().strip().lower()
 
 with open("planetarySystem.json", "r") as planets_json:
     planets_json = json.load(planets_json)
 
-    if goto_random_planet:
+    if goto_random_planet == 'y':
         print("Choosing a random planet")
         
         print("Travelling to Earth")
